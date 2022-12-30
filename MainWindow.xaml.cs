@@ -27,7 +27,6 @@ namespace BonkaLottning
         List<string> LottningHcp = new List<string>();
         ObservableCollection<Players> PlayerList = new ObservableCollection<Players>();
 
-
         public MainWindow()
         {
             InitializeComponent();
@@ -35,9 +34,8 @@ namespace BonkaLottning
             this.Closing += new System.ComponentModel.CancelEventHandler(MainWindow_Closing);
 
             DataContext = this.GetPlayers();
-
-
         }
+
         public ObservableCollection<Players> GetPlayers()
         {
             // Creating object, Name, hcp, skill
@@ -63,11 +61,11 @@ namespace BonkaLottning
 
         private void lottningButton_Click(object sender, RoutedEventArgs e)
         {
-            lottningWindow LottningWindow = new LottningWindow();
+            Lottning LottningWindow = new Lottning();
             LottningWindow.Show();
             this.Close();
         }
-        
+
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);

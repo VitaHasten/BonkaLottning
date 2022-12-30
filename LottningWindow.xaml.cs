@@ -23,5 +23,17 @@ namespace BonkaLottning
         {
             InitializeComponent();
         }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.Show();
+            this.Close();
+        }
     }
 }

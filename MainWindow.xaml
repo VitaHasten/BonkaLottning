@@ -10,12 +10,14 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
+    
     <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="/SheiakhBackground.jpg" Stretch="UniformToFill"/>
         </Canvas.Background>
 
         <Image Source="/altbackoapc1.png" Height="250" Width="auto" HorizontalAlignment="Left" Canvas.Left="148" Canvas.Top="802" VerticalAlignment="Top"/>
+        
         <Button x:Name="lottningButton" Height="100" Width="250" Content="Lottning" FontSize="30" FontWeight="Bold" 
                 Foreground="White" 
                 BorderThickness="0,0,0,0" Canvas.Left="57" Canvas.Top="37" Click="lottningButton_Click">
@@ -47,8 +49,5 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
-
-
     </Canvas>
 </Window>
