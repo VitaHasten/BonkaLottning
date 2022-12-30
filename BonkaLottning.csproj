@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="altBackground.png" />
+    <None Remove="altbackoapc1.png" />
+    <None Remove="SheiakhBackground.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="altBackground.png" />
+    <Resource Include="altbackoapc1.png" />
+    <Resource Include="SheiakhBackground.jpg" />
+  </ItemGroup>
+
+</Project>
