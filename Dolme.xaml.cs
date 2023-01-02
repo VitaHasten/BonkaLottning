@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,22 +18,22 @@ using System.Windows.Shapes;
 namespace BonkaLottning
 {
     /// <summary>
-    /// Interaction logic for LottningWindow.xaml
+    /// Interaction logic for Lottning.xaml
     /// </summary>
-    public partial class LottningWindow : Window
+    public partial class Lottning : Window
     {
         // Creating lists
         List<string> LottningSkill = new List<string>();
         List<string> LottningHcp = new List<string>();
-        bool friLottning= false;
 
         public ObservableCollection<Players> PlayerList = new ObservableCollection<Players>();
 
-        
-        public LottningWindow()
+        public Lottning()
         {
             InitializeComponent();
-            
+
+            DataContext = new AddPlayer();
+
             Players Player1 = new Players("Dawwe", 5.3, 9, @"/Dawe.png");
             Players Player2 = new Players("Robin", 9.7, 5, @"/Robin2.png");
             Players Player3 = new Players("Fraes", 14.7, 6, @"/Fraes.png");
@@ -48,7 +50,7 @@ namespace BonkaLottning
             Players Player14 = new Players("Konny", 9.5, 7, @"/Rocco.png");
             Players Player15 = new Players("Kristoffer", 22.8, 5, @"/Rocco.png");
             Players Player16 = new Players("Kurt", 36.0, 2, @"/Rocco.png");
-
+                     
             PlayerList.Add(Player1);
             PlayerList.Add(Player2);
             PlayerList.Add(Player3);
@@ -71,10 +73,8 @@ namespace BonkaLottning
                 PlayersDataGrid.Items.Add(item);
             }
 
-            
-
         }
-
+                
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
@@ -87,22 +87,11 @@ namespace BonkaLottning
             this.Close();
         }
 
-
+       
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             AddPlayer addPlayer = new AddPlayer();
             addPlayer.Show();
-        }
-
-        private void LottningsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Random Random = new Random();
-            Random.Show();
-
-            if (Fri.IsChecked==true)
-            {
-                friLottning = true;
-            }
         }
     }
 }

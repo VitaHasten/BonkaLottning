@@ -1,4 +1,4 @@
-﻿<Window x:Class="BonkaLottning.LottningWindow"
+﻿<Window x:Class="BonkaLottning.Lottning"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -71,7 +71,7 @@
         </Button>
 
         <TextBlock Text="Spelare" Width="600" Height="38" Canvas.Left="596" Canvas.Top="24" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <DataGrid x:Name="PlayersDataGrid" Height="807" Width="600" Canvas.Left="596" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" >
+        <DataGrid x:Name="PlayersDataGrid" Height="807" Width="600" Canvas.Left="596" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -88,7 +88,7 @@
             </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" MinWidth="100"/>
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" MinWidth="100" />
                 <DataGridTextColumn Header="Skill" Binding="{Binding Skill }" Width="100"/>
                 <DataGridTemplateColumn Header="Bild"  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -128,39 +128,7 @@
             </Button.Background>
         </Button>
 
-        <TextBlock Canvas.Left="1561" TextWrapping="Wrap" Text="Fri lottning?" FontSize="30" Canvas.Top="575" Height="255" Width="311" Background="Aquamarine" Padding="2" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <RadioButton x:Name="Fri" GroupName="useSkill" Canvas.Left="1632" Canvas.Top="630" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" IsChecked="True" />
-        <RadioButton x:Name="InteFri" GroupName="useSkill" Canvas.Left="1778" Canvas.Top="630" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1"/>
-        <TextBlock Canvas.Left="1607" TextWrapping="Wrap" Text="Helt fri" Canvas.Top="660" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="1735" TextWrapping="Wrap" Text="Använd skill" Canvas.Top="660" FontSize="22"/>
 
-        <Button x:Name="LottningsButton" 
-                Height="100" 
-                Width="250"  
-                Content="Lotta!" 
-                FontSize="30" 
-                FontWeight="Bold" 
-                Foreground="White" 
-                BorderThickness="0,0,0,0" 
-                Click="LottningsButton_Click"
-                Canvas.Left="1592" 
-                Canvas.Top="713" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Top" >
-
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
-                </Style>
-            </Button.Resources>
-
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="LightGreen"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
 
 
 

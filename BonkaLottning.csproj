@@ -10,13 +10,41 @@
   <ItemGroup>
     <None Remove="altBackground.png" />
     <None Remove="altbackoapc1.png" />
+    <None Remove="Boxer.png" />
+    <None Remove="cross.png" />
+    <None Remove="Dawe.png" />
+    <None Remove="Fedja.png" />
+    <None Remove="Fraes.png" />
+    <None Remove="Olle.png" />
+    <None Remove="Palle.png" />
+    <None Remove="Per.png" />
+    <None Remove="Robin.jpg" />
+    <None Remove="Robin2.png" />
+    <None Remove="Rocco.png" />
+    <None Remove="Sheiakh.png" />
     <None Remove="SheiakhBackground.jpg" />
+    <None Remove="Strandberg.png" />
+    <None Remove="Tet.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="altBackground.png" />
     <Resource Include="altbackoapc1.png" />
+    <Resource Include="Boxer.png" />
+    <Resource Include="cross.png" />
+    <Resource Include="Dawe.png" />
+    <Resource Include="Fedja.png" />
+    <Resource Include="Fraes.png" />
+    <Resource Include="Olle.png" />
+    <Resource Include="Palle.png" />
+    <Resource Include="Per.png" />
+    <Resource Include="Robin.jpg" />
+    <Resource Include="Robin2.png" />
+    <Resource Include="Rocco.png" />
+    <Resource Include="Sheiakh.png" />
     <Resource Include="SheiakhBackground.jpg" />
+    <Resource Include="Strandberg.png" />
+    <Resource Include="Tet.png" />
   </ItemGroup>
 
 </Project>

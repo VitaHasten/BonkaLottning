@@ -10,17 +10,17 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    
+
     <Canvas>
         <Canvas.Background>
             <ImageBrush ImageSource="/SheiakhBackground.jpg" Stretch="UniformToFill"/>
         </Canvas.Background>
 
         <Image Source="/altbackoapc1.png" Height="250" Width="auto" HorizontalAlignment="Left" Canvas.Left="148" Canvas.Top="802" VerticalAlignment="Top"/>
-        
+
         <Button x:Name="lottningButton" Height="100" Width="250" Content="Lottning" FontSize="30" FontWeight="Bold" 
                 Foreground="White" 
-                BorderThickness="0,0,0,0" Canvas.Left="57" Canvas.Top="37" Click="lottningButton_Click">
+                BorderThickness="0,0,0,0" Canvas.Left="57" Canvas.Top="37" Click="lottningButton_Click" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,7 +36,7 @@
 
         <Button x:Name="exitButton" Height="100" Width="250"  Content="Avsluta" FontSize="30" FontWeight="Bold" 
                 Foreground="White" 
-                BorderThickness="0,0,0,0" Click="exitButton_Click" Canvas.Left="1627" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Center">
+                BorderThickness="0,0,0,0" Click="exitButton_Click" Canvas.Left="1614" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
@@ -49,5 +49,15 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+
+        <TextBlock x:Name="textBlock1" Text="      Våra ledord" Height="316" Width="424" Canvas.Left="1330" Canvas.Top="254" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" Opacity="0.5" Foreground="White" FontSize="45" FontWeight="Bold" Visibility="Collapsed" Padding="5" />
+        <TextBlock x:Name="textBlock2" Text=" * Hälsa" Height="68" Width="230" Canvas.Left="1331" Canvas.Top="341" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="textBlock3" Text=" * Idrott" Height="68" Width="230" Canvas.Left="1331" Canvas.Top="414" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <TextBlock x:Name="textBlock4" Text=" * Ansvarsfullt drickande" Height="68" Width="423" Canvas.Left="1331" Canvas.Top="487" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Image x:Name="Cross" Height="580" Width="900" Canvas.Left="1092" Canvas.Top="124" Source="/cross.png" Visibility="Collapsed"/>
+        
+
+
+
     </Canvas>
 </Window>

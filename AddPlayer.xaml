@@ -1,0 +1,48 @@
+﻿<Window x:Class="BonkaLottning.AddPlayer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BonkaLottning"
+        mc:Ignorable="d"
+        Title="AddPlayer" Height="650" Width="425"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/altBackground.png"/>
+        </Canvas.Background>
+
+
+        <TextBlock Text="Ändra spelare" Width="425" Height="38" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="19" TextWrapping="Wrap" Text="Tas bort" Canvas.Top="56" Height="29" Width="157" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" TextAlignment="Left" RenderTransformOrigin="0.48,0.731"/>
+        <ComboBox x:Name="OldPlayer"
+                  DataContext="{Binding PlayerList}"
+                  IsEditable="True"
+                  IsReadOnly="True"
+                  Text="-- Välj spelare --"
+                  FontSize="18"
+                  HorizontalContentAlignment="Center"
+                  VerticalContentAlignment="Center"
+                  Canvas.Left="200" 
+                  Canvas.Top="47" 
+                  Width="190" 
+                  Height="47" 
+                  ItemsSource="{Binding Path=Name}" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Center"/>
+
+        <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Namn" Canvas.Top="112" FontSize="22" Height="29" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox x:Name="NameInput"  Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="103" Width="190" Height="47" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Hcp" Canvas.Top="165" FontSize="22" Height="37" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="HcpInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="160" Width="87" Height="47" HorizontalAlignment="Center" VerticalAlignment="Top" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBlock Canvas.Left="19" TextWrapping="Wrap" Text="Skill" Canvas.Top="223" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="SkillInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="217" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" Height="47" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="AddImageButton" Content="Lägg till bild" Canvas.Left="20" Canvas.Top="309" Height="54" Width="134" FontSize="18" Click="AddImageButton_Click" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="SubmitPlayerButton" Content="Spara ändring" Canvas.Left="20" Canvas.Top="383" Height="54" Width="134" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Click="SubmitPlayerButton_Click"/>
+        <Image x:Name="UploadedPreView" Height="160"  MinWidth="100" MaxWidth="200" Canvas.Left="202" Canvas.Top="303" />
+
+        
+
+    </Canvas>
+</Window>

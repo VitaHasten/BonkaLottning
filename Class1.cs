@@ -9,16 +9,17 @@ namespace BonkaLottning
 {
     public class Players
     {
+        
 
         // Instance Variables
-        String Name;
-        int Skill;
-        double Hcp;
-        String PlayerImage;
+        public string Name { get; set; }
+        public int Skill { get; set; }
+        public double Hcp { get; set; }
+        public string PlayerImage { get; set; }
 
 
         // Constructor Declaration of Class
-        public Players(String name, double hcp, int skill, string playerImage)
+        public Players(string name, double hcp, int skill, string playerImage)
         {
             Name = name;
             Skill = skill;
