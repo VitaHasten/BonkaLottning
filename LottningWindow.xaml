@@ -71,7 +71,7 @@
         </Button>
 
         <TextBlock Text="Spelare" Width="600" Height="38" Canvas.Left="596" Canvas.Top="24" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <DataGrid x:Name="PlayersDataGrid" Height="807" Width="600" Canvas.Left="596" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" >
+        <DataGrid x:Name="PlayersDataGrid" Height="807" Width="600" Canvas.Left="596" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -82,18 +82,25 @@
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                 </Style>
-                <Style TargetType="DataGridCell">
-                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                </Style>
+                
+                
             </DataGrid.Resources>
             <DataGrid.Columns>
+                
                 <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" MinWidth="100"/>
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" Width="100"/>
                 <DataGridTextColumn Header="Skill" Binding="{Binding Skill }" Width="100"/>
                 <DataGridTemplateColumn Header="Bild"  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=PlayerImage }" Width="auto" MaxHeight="150"/>
+                            <Image Source="{Binding Path=PlayerImage }" Width="auto" MaxHeight="120"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Land"  Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <Image Source="{Binding Path=PlayerFlag }" Width="auto" MaxHeight="120" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -161,13 +168,6 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
-
-
-
-
-
-
 
     </Canvas>
 </Window>

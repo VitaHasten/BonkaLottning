@@ -24,7 +24,6 @@ namespace BonkaLottning
         {
             InitializeComponent();
 
-            DataContext = new LottningWindow();
         }
 
         private void AddImageButton_Click(object sender, RoutedEventArgs e)

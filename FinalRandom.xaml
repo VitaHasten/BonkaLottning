@@ -1,0 +1,159 @@
+﻿<Window x:Class="BonkaLottning.FinalRandom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BonkaLottning"
+        mc:Ignorable="d"
+        Title="FinalRandom" Height="1080" Width="1920"
+        WindowState="Maximized"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Canvas>
+        <Canvas.Background>
+            <ImageBrush ImageSource="/altBackground.png"/>
+        </Canvas.Background>
+
+        <Button x:Name="lottningButton" 
+                Height="100" 
+                Width="250" 
+                Content="Tillbaka" 
+                FontSize="30" 
+                FontWeight="Bold" 
+                Foreground="White" 
+                BorderThickness="0,0,0,0" 
+                Canvas.Left="57" 
+                Canvas.Top="37" 
+                Click="backButton_Click">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Button x:Name="exitButton"
+                Height="100" 
+                Width="250"  
+                Content="Avsluta" 
+                FontSize="30" 
+                FontWeight="Bold" 
+                Foreground="White" 
+                BorderThickness="0,0,0,0" 
+                Click="exitButton_Click" 
+                Canvas.Left="1627" 
+                Canvas.Top="37" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top">
+
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Button.Resources>
+
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <Label FontSize="25" FontWeight="Bold" Width="420" Height="44" Canvas.Left="57" Canvas.Top="170" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="Lag 1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="57" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="267" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="57" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="267" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="57" Canvas.Top="686" HorizontalContentAlignment="Center" Background="LawnGreen" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="57" Canvas.Top="758" HorizontalContentAlignment="Center" Background="Red" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image1" Height="162" Width="122" Canvas.Left="118" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image2" Height="162" Width="122" Canvas.Left="294" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image3" Height="162" Width="122" Canvas.Left="118" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image4" Height="162" Width="122" Canvas.Left="294" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="{Binding TeamSkillAvg}" x:Name="TeamAvgSkill" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="347" Canvas.Top="686" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="{Binding TeamHcpAvg}" x:Name="TeamAvgHcp" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="347" Canvas.Top="730" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Image x:Name="Flag1" Height="26" Canvas.Left="362" Canvas.Top="776" Width="40" />
+        <Image x:Name="Flag2" Height="26" Canvas.Left="425" Canvas.Top="776" Width="40" />
+        <Image x:Name="Flag3" Height="26" Canvas.Left="362" Canvas.Top="805" Width="40" />
+        <Image x:Name="Flag4" Height="26" Canvas.Left="425" Canvas.Top="805" Width="40" />
+        <Rectangle Height="661" Canvas.Left="56" Stroke="Black" Canvas.Top="170" Width="421" Panel.ZIndex="-1"/>
+
+        <Label FontSize="25" FontWeight="Bold" Width="420" Height="44" Canvas.Left="528" Canvas.Top="170" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="Lag 2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="528" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="738" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="528" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="738" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="528" Canvas.Top="686" HorizontalContentAlignment="Center" Background="LawnGreen" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="528" Canvas.Top="758" HorizontalContentAlignment="Center" Background="Red" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image5" Height="162" Width="122" Canvas.Left="556" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image6" Height="162" Width="122" Canvas.Left="766" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image7" Height="162" Width="122" Canvas.Left="590" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image8" Height="162" Width="122" Canvas.Left="766" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamSkillAvg}" x:Name="TeamAvgSkill_Copy" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="818" Canvas.Top="686" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamHcpAvg}" x:Name="TeamAvgHcp_Copy" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="818" Canvas.Top="730" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image x:Name="Flag5" Height="26" Canvas.Left="834" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag6" Height="26" Canvas.Left="896" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag7" Height="26" Canvas.Left="834" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag8" Height="26" Canvas.Left="896" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle Height="661" Canvas.Left="527" Stroke="Black" Canvas.Top="170" Width="421" Panel.ZIndex="-1"/>
+
+        <Label FontSize="25" FontWeight="Bold" Width="420" Height="44" Canvas.Left="994" Canvas.Top="170" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="Lag 3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="994" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1204" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="994" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1204" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="994" Canvas.Top="686" HorizontalContentAlignment="Center" Background="LawnGreen" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="994" Canvas.Top="758" HorizontalContentAlignment="Center" Background="Red" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image9" Height="162" Width="122" Canvas.Left="1055" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image10" Height="162" Width="122" Canvas.Left="1231" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image11" Height="162" Width="122" Canvas.Left="1055" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image12" Height="162" Width="122" Canvas.Left="1231" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamSkillAvg}" x:Name="TeamAvgSkill_Copy1" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="1284" Canvas.Top="686" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamHcpAvg}" x:Name="TeamAvgHcp_Copy1" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="1284" Canvas.Top="730" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image x:Name="Flag9" Height="26" Canvas.Left="1299" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag10" Height="26" Canvas.Left="1362" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag11" Height="26" Canvas.Left="1299" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag12" Height="26" Canvas.Left="1362" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle Height="661" Canvas.Left="993" Stroke="Black" Canvas.Top="170" Width="421" Panel.ZIndex="-1"/>
+
+        <Label FontSize="25" FontWeight="Bold" Width="420" Height="44" Canvas.Left="1456" Canvas.Top="170" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="Lag 4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1456" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1666" Canvas.Top="404" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1456" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="210" Height="44" Canvas.Left="1666" Canvas.Top="642" HorizontalContentAlignment="Center" Background="Black" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="1456" Canvas.Top="686" HorizontalContentAlignment="Center" Background="LawnGreen" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label FontSize="25" FontWeight="Bold" Width="290" Height="72" Canvas.Left="1456" Canvas.Top="758" HorizontalContentAlignment="Center" Background="Red" Foreground="White" Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image1_Copy2" Height="162" Width="122" Canvas.Left="1517" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image2_Copy2" Height="162" Width="122" Canvas.Left="1693" Canvas.Top="228" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image3_Copy2" Height="162" Width="122" Canvas.Left="1517" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image Source="{Binding PlayerImage}" x:Name="Image4_Copy2" Height="162" Width="122" Canvas.Left="1693" Canvas.Top="465" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamSkillAvg}" x:Name="TeamAvgSkill_Copy2" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="1746" Canvas.Top="686" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Label Content="{Binding TeamHcpAvg}" x:Name="TeamAvgHcp_Copy2" FontSize="25" FontWeight="Bold" Width="129" Height="44" Canvas.Left="1746" Canvas.Top="730" HorizontalContentAlignment="Center" Background="White" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Image x:Name="Flag13" Height="26" Canvas.Left="1761" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag14" Height="26" Canvas.Left="1824" Canvas.Top="776" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag15" Height="26" Canvas.Left="1761" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="Flag16" Height="26" Canvas.Left="1824" Canvas.Top="805" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Rectangle Height="661" Canvas.Left="1455" Stroke="Black" Canvas.Top="170" Width="421" Panel.ZIndex="-1"/>
+
+
+
+
+
+
+
+
+
+
+
+    </Canvas>
+</Window>

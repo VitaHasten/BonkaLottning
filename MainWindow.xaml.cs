@@ -25,7 +25,6 @@ namespace BonkaLottning
     {
 
         
-
         public MainWindow()
         {
             InitializeComponent();
@@ -63,7 +62,7 @@ namespace BonkaLottning
 
         private void lottningButton_Click(object sender, RoutedEventArgs e)
         {
-            Lottning LottningWindow = new Lottning();
+            LottningWindow LottningWindow = new LottningWindow();
             LottningWindow.Show();
             this.Close();
             

@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BonkaLottning"
         mc:Ignorable="d"
+        DataContext="{Binding ElementName=LottningWindow}"
         Title="AddPlayer" Height="650" Width="425"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -12,14 +13,14 @@
         <Canvas.Background>
             <ImageBrush ImageSource="/altBackground.png"/>
         </Canvas.Background>
-
+        
 
         <TextBlock Text="Ändra spelare" Width="425" Height="38" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="19" TextWrapping="Wrap" Text="Tas bort" Canvas.Top="56" Height="29" Width="157" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" TextAlignment="Left" RenderTransformOrigin="0.48,0.731"/>
+        
         <ComboBox x:Name="OldPlayer"
-                  DataContext="{Binding PlayerList}"
-                  IsEditable="True"
-                  IsReadOnly="True"
+                  
+                  ItemsSource="{Binding playerList}"
                   Text="-- Välj spelare --"
                   FontSize="18"
                   HorizontalContentAlignment="Center"
@@ -28,10 +29,8 @@
                   Canvas.Top="47" 
                   Width="190" 
                   Height="47" 
-                  ItemsSource="{Binding Path=Name}" 
                   HorizontalAlignment="Left" 
-                  VerticalAlignment="Center"/>
-
+                  VerticalAlignment="Center" IsEditable="True"/>
         <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Namn" Canvas.Top="112" FontSize="22" Height="29" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBox x:Name="NameInput"  Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="103" Width="190" Height="47" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Hcp" Canvas.Top="165" FontSize="22" Height="37" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>

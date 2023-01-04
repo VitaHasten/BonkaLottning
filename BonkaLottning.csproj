@@ -10,12 +10,17 @@
   <ItemGroup>
     <None Remove="altBackground.png" />
     <None Remove="altbackoapc1.png" />
+    <None Remove="bosnien.png" />
     <None Remove="Boxer.png" />
     <None Remove="cross.png" />
     <None Remove="Dawe.png" />
+    <None Remove="estland.png" />
     <None Remove="Fedja.png" />
     <None Remove="Fraes.png" />
+    <None Remove="italien.png" />
+    <None Remove="norge.png" />
     <None Remove="Olle.png" />
+    <None Remove="pakistan.png" />
     <None Remove="Palle.png" />
     <None Remove="Per.png" />
     <None Remove="Robin.jpg" />
@@ -24,18 +29,24 @@
     <None Remove="Sheiakh.png" />
     <None Remove="SheiakhBackground.jpg" />
     <None Remove="Strandberg.png" />
+    <None Remove="sverige.png" />
     <None Remove="Tet.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="altBackground.png" />
     <Resource Include="altbackoapc1.png" />
+    <Resource Include="bosnien.png" />
     <Resource Include="Boxer.png" />
     <Resource Include="cross.png" />
     <Resource Include="Dawe.png" />
+    <Resource Include="estland.png" />
     <Resource Include="Fedja.png" />
     <Resource Include="Fraes.png" />
+    <Resource Include="italien.png" />
+    <Resource Include="norge.png" />
     <Resource Include="Olle.png" />
+    <Resource Include="pakistan.png" />
     <Resource Include="Palle.png" />
     <Resource Include="Per.png" />
     <Resource Include="Robin.jpg" />
@@ -44,6 +55,7 @@
     <Resource Include="Sheiakh.png" />
     <Resource Include="SheiakhBackground.jpg" />
     <Resource Include="Strandberg.png" />
+    <Resource Include="sverige.png" />
     <Resource Include="Tet.png" />
   </ItemGroup>
 
