@@ -16,6 +16,8 @@
             <ImageBrush ImageSource="/altBackground.png"/>
         </Canvas.Background>
 
+        <Label Content="Tillgängliga spelare" Canvas.Left="63" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1445" FontWeight="Bold" FontSize="70" Height="118" Background="Black" Foreground="White" HorizontalContentAlignment="Center"/>
+
         <Button x:Name="lottningButton" 
                 Height="100" 
                 Width="250" 
@@ -24,8 +26,8 @@
                 FontWeight="Bold" 
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
-                Canvas.Left="57" 
-                Canvas.Top="37" 
+                Canvas.Left="1627" 
+                Canvas.Top="728" 
                 Click="backButton_Click">
 
             <Button.Resources>
@@ -70,37 +72,75 @@
             </Button.Background>
         </Button>
 
-        <TextBlock Text="Spelare" Width="600" Height="38" Canvas.Left="596" Canvas.Top="24" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <DataGrid x:Name="PlayersDataGrid" Height="807" Width="600" Canvas.Left="596" Canvas.Top="64" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" >
+
+        <DataGrid x:Name="PlayersDataGrid1" Height="676" Width="650" Canvas.Left="63" Canvas.Top="153" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" >
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#ffcc99"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="FontSize" Value="32"/>
                     <Setter Property="BorderThickness" Value="0,0,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
                 </Style>
-                
-                
+
+
             </DataGrid.Resources>
-            <DataGrid.Columns>
-                
+            <DataGrid.Columns >
+
                 <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" Width="100"/>
-                <DataGridTextColumn Header="Skill" Binding="{Binding Skill }" Width="100"/>
-                <DataGridTemplateColumn Header="Bild"  Width="*">
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Path=Hcp}" Width="100"/>
+                <DataGridTextColumn Header="Skill" Binding="{Binding Path=Skill }" Width="100"/>
+                <DataGridTemplateColumn Header="Bild"  Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=PlayerImage }" Width="auto" MaxHeight="120"/>
+                            <Image Source="{Binding Path=PlayerImage }" Width="auto" MaxHeight="75"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Land"  Width="*">
+                <DataGridTemplateColumn Header="Land"  Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <Image Source="{Binding Path=PlayerFlag }" Width="auto" MaxHeight="120" />
+                            <Image Source="{Binding Path=PlayerFlag }" Width="auto" MaxHeight="75" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid x:Name="PlayersDataGrid2" Height="676" Width="650" Canvas.Left="858" Canvas.Top="153" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" >
+
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#ffcc99"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="FontSize" Value="32"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                </Style>
+
+
+            </DataGrid.Resources>
+            <DataGrid.Columns >
+
+                <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" Width="100"/>
+                <DataGridTextColumn Header="Skill" Binding="{Binding Skill}" Width="100"/>
+                <DataGridTemplateColumn Header="Bild"  Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding PlayerImage}" Width="auto" MaxHeight="75"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Land"  Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <Image Source="{Binding PlayerFlag}" Width="auto" MaxHeight="75" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -117,8 +157,8 @@
                 BorderThickness="0,0,0,0" 
                 Click="AddButton_Click"
                 Canvas.Left="1627" 
-                Canvas.Top="405" 
-                HorizontalAlignment="Left" 
+                Canvas.Top="246" 
+                HorizontalAlignment="Center" 
                 VerticalAlignment="Top" >
 
             <Button.Resources>
@@ -134,12 +174,10 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
-        <TextBlock Canvas.Left="1561" TextWrapping="Wrap" Text="Fri lottning?" FontSize="30" Canvas.Top="575" Height="255" Width="311" Background="Aquamarine" Padding="2" TextAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" />
-        <RadioButton x:Name="Fri" GroupName="useSkill" Canvas.Left="1632" Canvas.Top="630" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" IsChecked="True" />
-        <RadioButton x:Name="InteFri" GroupName="useSkill" Canvas.Left="1778" Canvas.Top="630" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1"/>
-        <TextBlock Canvas.Left="1607" TextWrapping="Wrap" Text="Helt fri" Canvas.Top="660" FontSize="22" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="1735" TextWrapping="Wrap" Text="Använd skill" Canvas.Top="660" FontSize="22"/>
+        <RadioButton x:Name="Fri" GroupName="useSkill" Canvas.Left="1804" Canvas.Top="582" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" IsChecked="True" RenderTransformOrigin="4.444,3.476" Width="25" />
+        <RadioButton x:Name="InteFri" GroupName="useSkill" Canvas.Left="1804" Canvas.Top="644" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" Width="25"/>
+        <TextBlock Canvas.Left="1658" TextWrapping="Wrap" Text="Fri lottning" Canvas.Top="574" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108"/>
+        <TextBlock Canvas.Left="1658" TextWrapping="Wrap" Text="Använd hcp" Canvas.Top="636" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Width="127"/>
 
         <Button x:Name="LottningsButton" 
                 Height="100" 
@@ -150,9 +188,9 @@
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
                 Click="LottningsButton_Click"
-                Canvas.Left="1592" 
-                Canvas.Top="713" 
-                HorizontalAlignment="Left" 
+                Canvas.Left="1627" 
+                Canvas.Top="440" 
+                HorizontalAlignment="Center" 
                 VerticalAlignment="Top" >
 
             <Button.Resources>
@@ -168,6 +206,9 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+
+
+
 
     </Canvas>
 </Window>

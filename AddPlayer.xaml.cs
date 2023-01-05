@@ -24,6 +24,10 @@ namespace BonkaLottning
         {
             InitializeComponent();
 
+            this.DataContext = Players.PlayerList;
+
+            OldPlayer.ItemsSource = Players.PlayerList;
+
         }
 
         private void AddImageButton_Click(object sender, RoutedEventArgs e)
@@ -39,11 +43,25 @@ namespace BonkaLottning
 
         void SubmitPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            // PlayerList.Add(new Players { Name = NameInput.Text, Hcp = int.Parse(HcpInput.Text), Skill = int.Parse(SkillInput.Text), PlayerImage = Convert.ToString(UploadedPreView.Source) });
+            Player selectedPlayer = (Player)OldPlayer.SelectedItem;
+            Players.PlayerList.Remove(selectedPlayer);
+            
+            
+            // Players.PlayerList.Add( Name = NameInput.Text, Hcp = double.Parse(HcpInput.Text), Skill = int.Parse(SkillInput.Text), Drives = int.Parse(DriverInput.Value), Wedges = int.Parse(WedgeInput.Value), Chipping = int.Parse(ChippingInput.Value), Putting = int.Parse(PuttingInput.Value), Vinnarskalle = int.Parse(VinnarskalleInput.Value), Alcohol = int.Parse(AlcoholInput.Value), PlayerImage = Convert.ToString(UploadedPreView.Source) );
+            
+            // Nollställer inmatningarna.
             NameInput.Text = string.Empty;
             HcpInput.Text = string.Empty;
             SkillInput.Text = string.Empty;
+            DriverInput.Value = 3;
+            WedgeInput.Value = 3;
+            ChippingInput.Value = 3;
+            PuttingInput.Value = 3;
+            VinnarskalleInput.Value = 3;
+            AlcoholInput.Value = 3;
             UploadedPreView.Source = null;
+            OldPlayer.Text = "    -- Välj spelare --";
         }
     }
 }
+

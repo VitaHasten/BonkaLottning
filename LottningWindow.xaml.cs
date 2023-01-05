@@ -25,20 +25,48 @@ namespace BonkaLottning
         List<string> LottningSkill = new List<string>();
         List<string> LottningHcp = new List<string>();
         bool friLottning= false;
-         
-              
+
+        ObservableCollection<Player> GridList1 = new ObservableCollection<Player>();
+        ObservableCollection<Player> GridList2 = new ObservableCollection<Player>();
+
+
+
 
         public LottningWindow()
         {
             InitializeComponent();
 
             Players players = new Players();
+                        
+            this.DataContext = players;
 
-            
-            PlayersDataGrid.ItemsSource = result; 
-            
-            this.DataContext= players;
+            UpdatePlayerGrids();
+
+            void UpdatePlayerGrids()
+            {
+                GridList1 = new ObservableCollection<Player>();
+                GridList2 = new ObservableCollection<Player>();
+                GridList1.Clear();
+                GridList2.Clear();
+
+                foreach (Player player in Players.PlayerList.Take(8))
+                {
+                    GridList1.Add(player);
+                }
+
+                foreach (Player player in Players.PlayerList.Skip(8))
+                {
+                    GridList2.Add(player);
+                }
+
+                PlayersDataGrid1.ItemsSource = GridList1;
+                PlayersDataGrid2.ItemsSource = GridList2;
+            }
+
         }
+
+
+        
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,15 +85,13 @@ namespace BonkaLottning
         {
             AddPlayer addPlayer = new AddPlayer();
             // addPlayer.DataContext = new Players();
-             addPlayer.OldPlayer.ItemsSource = Players.Getall();
+            addPlayer.OldPlayer.ItemsSource = Players.PlayerList;
             addPlayer.Show();
         }
 
         private void LottningsButton_Click(object sender, RoutedEventArgs e)
         {
             FinalRandom FinalRandom = new FinalRandom();
-            FinalRandom.DataContext = new Players();
-            FinalRandom.ItemsSource = Players.Getall();
             FinalRandom.Show();
 
             if (Fri.IsChecked==true)

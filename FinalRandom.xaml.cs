@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,94 +22,123 @@ namespace BonkaLottning
     {
 
         // Lista med objekt
-        List<Object> team1 = new List<Object>();
-        List<Object> team2 = new List<Object>();
-        List<Object> team3 = new List<Object>();
-        List<Object> team4 = new List<Object>();
+        List<Player> team1 = new List<Player>();
+        List<Player> team2 = new List<Player>();
+        List<Player> team3 = new List<Player>();
+        List<Player> team4 = new List<Player>();
+
+        List<int> siffror = new List<int>();
+        
+                    
+        
 
         public FinalRandom()
         {
             InitializeComponent();
 
+            DataContext = Players.PlayerList; 
+
             PerformLottning();
         }
 
-        void PerformLottning()
+        void Slumptal()
         {
-
-            // Shuffle listan
-            var rnd = new Random();
-            int n = PlayerList.Count;
-            while (n > 1)
+            for (int i = 1; i <= 4; i++)
             {
-                n--;
-                int k = rnd.Next(n + 1);
-                Object value = PlayerList[k];
-                PlayerList[k] = PlayerList[n];
-                PlayerList[n] = value;
-            }
-
-            // Välj de första fyra elementen i shufflade listan
-            PlayerList<Players> selectedObjects1 = PlayerList.Take(4).ToList(team1);
-
-            // Ta bort de valda objekten från listan
-            PlayerList.RemoveRange(0, 4);
-
-            // Välj fyra till objekt från de kvarvarande objekten i listan
-            PlayerList<Players> selectedObjects2 = PlayerList.Take(4).ToList(team2);
-
-            // Ta bort de valda objekten från listan
-            PlayerList.RemoveRange(0, 4);
-
-            // Välj fyra till objekt från de kvarvarande objekten i listan
-            PlayerList<Players> selectedObjects3 = PlayerList.Take(4).ToList(team3);
-
-            // Ta bort de valda objekten från listan
-            PlayerList.RemoveRange(0, 4);
-
-            // Välj fyra till objekt från de kvarvarande objekten i listan
-            PlayerList<Players> selectedObjects4 = PlayerList.Take(4).ToList(team4);
-
-            // Ta bort de valda objekten från listan
-            PlayerList.RemoveRange(0, 4);
-
-            void drawPlayer1()
-            {
-                foreach (var team1player1 in team1)
+                for (int j = 0; j < 4; j++)
                 {
-
+                    siffror.Add(i);
                 }
             }
+            siffror = siffror.OrderBy(x => Guid.NewGuid()).ToList();
+        }
 
-            void teamSkills()
+
+        void PerformLottning()
+        {
+            LagTilldelning();
+            
+        }
+
+        void LagTilldelning()
+        {
+            Slumptal();
+            foreach (var slumpa in Players.PlayerList)
             {
-                for (int i = 0; i < team1.Length; i++)
+                if (slumpa.Team < 1)
                 {
-                    double driveSum = Player.Drive[i] =+;
-                    double driveAvg = driveSum /[i];
+                    for (int i = 0; i < 16; i++)
+                    {
+                        slumpa.Team = siffror[i];
 
-                    double wedgeSum = Player.Drive[i] =+;
-                    double wedgeAvg = driveSum /[i];
+                    }
 
-                    double chippingSum = Player.Drive[i] =+;
-                    double chippingAvg = driveSum /[i];
+                }
 
-                    double puttingSum = Player.Drive[i] =+;
-                    double puttingAvg = driveSum /[i];
+                else
+                {
+                    Console.WriteLine("Något är fel.");
+                }
+                
+                if (slumpa.Team == 1)
+                {
+                    team1.Add(slumpa);
+                    Snitt(slumpa,1);
+                }
+                else if (slumpa.Team == 2)
+                {
+                    team2.Add(slumpa);
+                    Snitt(slumpa,2);
+                }
+                else if (slumpa.Team == 3)
+                {
+                    team3.Add(slumpa);
+                    Snitt(slumpa,3);
+                }
+                else if (slumpa.Team == 4)
+                {
+                    team4.Add(slumpa);
+                    Snitt(slumpa,4);
+                }
+            }
+        }
 
-                    double vinnarskalleSum = Player.Drive[i] =+;
-                    double vinnarskalleAvg = driveSum /[i];
+        void Snitt(Player spelare, int lag)
+        {
 
-                    double alcoholSum = Player.Drive[i] =+;
-                    double alcoholAvg = driveSum /[i];
+        }
+
+
+
+
+
+        void teamSkills()
+            {
+                for (int i = 0; i < team1.Count; i++)
+                {
+                    double driveSum =+ team1[i].Drives;
+                    double driveAvg = driveSum / i;
+
+                    double wedgeSum =+ team1[i].Wedges;
+                    double wedgeAvg = wedgeSum / i;
+
+                    double chippingSum =+ team1[i].Chipping ;
+                    double chippingAvg = wedgeSum /i;
+
+                    double puttingSum =+ team1[i].Puttning;
+                    double puttingAvg = puttingSum /i;
+
+                    double vinnarskalleSum =+ team1[i].Vinnarskalle;
+                    double vinnarskalleAvg = vinnarskalleSum /i;
+
+                    double alcoholSum = team1[i].Alcohol;
+                    double alcoholAvg = alcoholSum /i;
 
                     string styrka = "Styrka: ";
                     string svaghet = "Svaghet: ";
 
                     string Strength()
-
                     {
-
                         if (driveAvg > wedgeAvg && driveAvg > chippingAvg && driveAvg > puttingAvg && driveAvg > vinnarskalleAvg && driveAvg > alcoholAvg)
                         {
                             styrka = "Styrka: Spelet med drivern. Långt eller rakt, ofta både och. ";
@@ -144,7 +174,6 @@ namespace BonkaLottning
 
                     string Weakness()
                     {
-
                         if (driveAvg < wedgeAvg && driveAvg < chippingAvg && driveAvg < puttingAvg && driveAvg < vinnarskalleAvg && driveAvg < alcoholAvg)
                         {
                             svaghet = "Svaghet: Kort och snett från tee, oftast.";
@@ -178,7 +207,7 @@ namespace BonkaLottning
                         return svaghet;
                     }
                 }
-            }
+            
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
