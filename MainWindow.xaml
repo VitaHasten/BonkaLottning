@@ -10,17 +10,35 @@
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-
-    <Canvas>
-        <Canvas.Background>
-            <ImageBrush ImageSource="/SheiakhBackground.jpg" Stretch="UniformToFill"/>
-        </Canvas.Background>
-
-        <Image Source="/altbackoapc1.png" Height="250" Width="auto" HorizontalAlignment="Left" Canvas.Left="148" Canvas.Top="802" VerticalAlignment="Top"/>
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SheiakhBackground.jpg" Stretch="UniformToFill" />
+            
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <Image Source="/altbackoapc1.png" Height="250" Width="auto" Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="4"/>
 
         <Button x:Name="lottningButton" Height="100" Width="250" Content="Lottning" FontSize="30" FontWeight="Bold" 
                 Foreground="White" 
-                BorderThickness="0,0,0,0" Canvas.Left="57" Canvas.Top="37" Click="lottningButton_Click" >
+                BorderThickness="0,0,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Click="lottningButton_Click" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
@@ -36,7 +54,7 @@
 
         <Button x:Name="exitButton" Height="100" Width="250"  Content="Avsluta" FontSize="30" FontWeight="Bold" 
                 Foreground="White" 
-                BorderThickness="0,0,0,0" Click="exitButton_Click" Canvas.Left="1614" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Top">
+                BorderThickness="0,0,0,0" Click="exitButton_Click" Grid.Column="6" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>
@@ -50,20 +68,18 @@
             </Button.Background>
         </Button>
 
-        <TextBlock x:Name="textBlock1" Text="      Våra ledord" Height="316" Width="424" Canvas.Left="1330" Canvas.Top="254" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black" Opacity="0.5" Foreground="White" FontSize="45" FontWeight="Bold" Visibility="Collapsed" Padding="5" />
-        <TextBlock x:Name="textBlock2" Text=" * Hälsa" Height="68" Width="230" Canvas.Left="1331" Canvas.Top="341" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBlock x:Name="textBlock3" Text=" * Idrott" Height="68" Width="230" Canvas.Left="1331" Canvas.Top="414" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <TextBlock x:Name="textBlock4" Text=" * Ansvarsfullt drickande" Height="68" Width="423" Canvas.Left="1331" Canvas.Top="487" Foreground="White" FontSize="35" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed"/>
-        <Image x:Name="Cross" Height="580" Width="900" Canvas.Left="1092" Canvas.Top="124" Source="/cross.png" Visibility="Collapsed"/>
+        <StackPanel Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2"   >
+            
+            <Label x:Name="label1" Content="Våra ledord" Height="68" Width="423" Background="Black" Foreground="White" FontSize="36" FontFamily="Bold"  HorizontalContentAlignment="Center" Padding="0 18 0 0" Visibility="Collapsed" />
+            <Label x:Name="label2" Content=" * Hälsa" Height="68" Width="423" Background="Black" Foreground="White" FontSize="36" FontFamily="Bold" Visibility="Collapsed"/>
+            <Label x:Name="label3" Content=" * Idrott" Height="68" Width="423" Background="Black" Foreground="White" FontSize="36" FontFamily="Bold" Visibility="Collapsed"/>
+            <Label x:Name="label4" Content=" * Ansvarsfullt drickande" Height="68" Width="423" Background="Black" Foreground="White" FontSize="36" FontFamily="Bold" Visibility="Collapsed"/>
+            
+        </StackPanel>
+        <Image x:Name="Cross2" Source="/cross2.png" Grid.Column="5" Grid.Row="2" Visibility="Collapsed" Panel.ZIndex="1" Stretch="Fill" />
+
+        
         
 
-
-
-
-
-
-
-
-
-    </Canvas>
+    </Grid>
 </Window>

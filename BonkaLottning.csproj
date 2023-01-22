@@ -13,6 +13,7 @@
     <None Remove="bosnien.png" />
     <None Remove="Boxer.png" />
     <None Remove="cross.png" />
+    <None Remove="cross2.png" />
     <None Remove="Dawe.png" />
     <None Remove="estland.png" />
     <None Remove="Fedja.png" />
@@ -26,6 +27,7 @@
     <None Remove="Robin.jpg" />
     <None Remove="Robin2.png" />
     <None Remove="Rocco.png" />
+    <None Remove="seethrough.png" />
     <None Remove="Sheiakh.png" />
     <None Remove="SheiakhBackground.jpg" />
     <None Remove="Strandberg.png" />
@@ -39,6 +41,7 @@
     <Resource Include="bosnien.png" />
     <Resource Include="Boxer.png" />
     <Resource Include="cross.png" />
+    <Resource Include="cross2.png" />
     <Resource Include="Dawe.png" />
     <Resource Include="estland.png" />
     <Resource Include="Fedja.png" />
@@ -52,6 +55,7 @@
     <Resource Include="Robin.jpg" />
     <Resource Include="Robin2.png" />
     <Resource Include="Rocco.png" />
+    <Resource Include="seethrough.png" />
     <Resource Include="Sheiakh.png" />
     <Resource Include="SheiakhBackground.jpg" />
     <Resource Include="Strandberg.png" />

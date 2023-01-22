@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -31,23 +32,23 @@ namespace BonkaLottning
 
             this.Closing += new System.ComponentModel.CancelEventHandler(MainWindow_Closing);
 
-            List<TextBlock> textBlocks = new List<TextBlock>()
+            List<Label> labels = new List<Label>()
             {
-                textBlock1,
-                textBlock2,
-                textBlock3,
-                textBlock4
+                label1,
+                label2,
+                label3,
+                label4
             };
 
             List<Image> crossImage = new List<Image>()
             {
-                Cross
+                Cross2
             };
 
-            ShowTextBlocksWithDelay(textBlocks);
+            ShowTextBlocksWithDelay(labels);
             ShowCrossWithDelay(crossImage);
 
-            
+
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
@@ -65,10 +66,10 @@ namespace BonkaLottning
             LottningWindow LottningWindow = new LottningWindow();
             LottningWindow.Show();
             this.Close();
-            
+                       
         }
 
-        private void ShowTextBlocksWithDelay(List<TextBlock> textBlocks)
+        private void ShowTextBlocksWithDelay(List<Label> labels)
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(1500);
@@ -78,10 +79,11 @@ namespace BonkaLottning
             int index = 0;
             timer.Tick += (sender, e) =>
             {
-                textBlocks[index].Visibility = Visibility.Visible;
+               
+                labels[index].Visibility = Visibility.Visible;
                 index++;
 
-                if (index == textBlocks.Count)
+                if (index == labels.Count)
                 {
                     timer.Stop();
                 }
@@ -94,12 +96,13 @@ namespace BonkaLottning
         {
             DispatcherTimer timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(9000);
-                        
+
             timer.Tick += (sender, e) =>
-            Cross.Visibility = Visibility.Visible;
-            
+            Cross2.Visibility = Visibility.Visible;
+
             timer.Stop();
             timer.Start();
         }
+
     }
 }

@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:BonkaLottning"
         mc:Ignorable="d"
         DataContext="{Binding ElementName=LottningWindow}"
-        Title="AddPlayer" Height="950" Width="500"
+        Title="AddPlayer" Height="910" Width="500"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Canvas>
-        <Canvas.Background>
-            <ImageBrush ImageSource="/altBackground.png"/>
-        </Canvas.Background>
+
 
 
         <TextBlock Text="Ändra spelare" Width="500" Height="38" FontSize="30" Background="Black" Foreground="White" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
@@ -31,33 +29,37 @@
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Center" IsEditable="True"/>
         <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Namn" Canvas.Top="112" FontSize="22" Height="29" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBox x:Name="NameInput"  Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="103" Width="180" Height="47" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox x:Name="NameInput" Canvas.Left="200" TextWrapping="NoWrap" TextAlignment="Left" Canvas.Top="103" Width="180" Height="47" Background="LightYellow" FontSize="22" FontWeight="Medium" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="7 0"/>
         <TextBlock Canvas.Left="20" TextWrapping="Wrap" Text="Hcp (0-36)" Canvas.Top="165" FontSize="22" Height="37" Width="157" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox x:Name="HcpInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="160" Width="87" Height="47" HorizontalAlignment="Center" VerticalAlignment="Top" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="HcpInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="160" Width="55" Height="47" HorizontalAlignment="Center" VerticalAlignment="Top" Background="LightYellow" FontSize="22" FontWeight="Medium" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBlock Canvas.Left="19" TextWrapping="Wrap" Text="Skill (1-10)" Canvas.Top="223" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="SkillInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="217" Width="87" HorizontalAlignment="Center" VerticalAlignment="Top" Height="47" Background="LightYellow" FontSize="22" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="SkillInput" Canvas.Left="200" TextWrapping="Wrap"  Canvas.Top="217" Width="55" HorizontalAlignment="Center" VerticalAlignment="Top" Height="47" Background="LightYellow" FontSize="22" FontWeight="Medium" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Driver skill" Canvas.Top="278" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Slider Name="DriverInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="278" Canvas.Left="200" Height="41" Width="260" HorizontalAlignment="Left" VerticalAlignment="Center" TickFrequency="1" TickPlacement="Both"/>
-        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Wedge skill" Canvas.Top="319" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Slider x:Name="WedgeInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="319" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Slider x:Name="ChippingInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="360" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Chipping skill" Canvas.Top="360" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Slider x:Name="PuttingInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="401" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <Slider x:Name="VinnarskalleInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="442" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top" />
-        <Slider x:Name="AlcoholInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="488" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Putting skill" Canvas.Top="401" FontSize="22" Height="36" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Mentalitet" Canvas.Top="442" FontSize="22" Height="34" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Ölsinne" Canvas.Top="488" FontSize="22" Height="34" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="18" TextWrapping="Wrap" Text="Wedge skill" Canvas.Top="324" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Slider x:Name="WedgeInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="324" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Slider x:Name="ChippingInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="370" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="19" TextWrapping="Wrap" Text="Chipping skill" Canvas.Top="370" FontSize="22" Height="35" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Slider x:Name="PuttingInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="416" Canvas.Left="200" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <Slider x:Name="VinnarskalleInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="462" Canvas.Left="198" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Slider x:Name="AlcoholInput" Minimum="1" Maximum="5" SmallChange="1" Value="3" Canvas.Top="508" Canvas.Left="198" Height="41" Width="260" TickFrequency="1" TickPlacement="Both" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="16" TextWrapping="Wrap" Text="Putting skill" Canvas.Top="416" FontSize="22" Height="36" Width="158" TextAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="16" TextWrapping="Wrap" Text="Mentalitet" Canvas.Top="462" FontSize="22" Height="34" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBlock Canvas.Left="16" TextWrapping="Wrap" Text="Ölsinne" Canvas.Top="508" FontSize="22" Height="34" Width="158" TextAlignment="Left" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
-        <Button x:Name="AddImageButton" Content="Lägg till bild" Canvas.Left="18" Canvas.Top="549" Height="54" Width="134" FontSize="18" Click="AddImageButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button x:Name="SubmitPlayerButton" Content="Spara ändring" Canvas.Left="18" Canvas.Top="623" Height="54" Width="134" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Click="SubmitPlayerButton_Click"/>
-        <Image x:Name="UploadedPreView" Height="160"  MinWidth="100" MaxWidth="200" Canvas.Left="271" Canvas.Top="549" HorizontalAlignment="Left" VerticalAlignment="Top" />
-
+        <Button x:Name="AddImageButton" Content="Lägg till bild" Canvas.Left="16" Canvas.Top="591" Height="54" Width="134" FontSize="18" Click="AddImageButton_Click" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button x:Name="SubmitPlayerButton" Content="Spara ändring" Canvas.Left="16" Canvas.Top="665" Height="54" Width="134" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Click="SubmitPlayerButton_Click" />
 
 
-
-
-
+        <Image x:Name="UploadedPreView" Height="160"  MinWidth="100" MaxWidth="200" Canvas.Left="269" Canvas.Top="600" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Image Source="/seethrough.png" Height="91" Canvas.Top="775" Width="460" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="16"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="298" HorizontalAlignment="Left" VerticalAlignment="Top" Width="262" FontSize="16" Height="34" Foreground="Gray"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="344" Width="262" FontSize="16" Height="34" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Gray"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="390" Width="262" FontSize="16" Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Gray"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="436" Width="262" FontSize="16" Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Gray"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="482" Width="262" FontSize="16" Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Gray"/>
+        <Label Content="1            2            3            4            5 " Canvas.Left="198" Canvas.Top="528" Width="262" FontSize="16" Height="34" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Gray"/>
+        
 
     </Canvas>
 </Window>

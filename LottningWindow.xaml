@@ -11,12 +11,39 @@
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
 
-    <Canvas>
-        <Canvas.Background>
+    <Grid>
+        <Grid.Background>
             <ImageBrush ImageSource="/altBackground.png"/>
-        </Canvas.Background>
+        </Grid.Background>
 
-        <Label Content="Tillgängliga spelare" Canvas.Left="63" Canvas.Top="37" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1445" FontWeight="Bold" FontSize="70" Height="118" Background="Black" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Tillgängliga spelare" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1445" FontWeight="Bold" FontSize="70" Height="118" Background="Black" Foreground="White" HorizontalContentAlignment="Center"/>
 
         <Button x:Name="lottningButton" 
                 Height="100" 
@@ -26,8 +53,10 @@
                 FontWeight="Bold" 
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
-                Canvas.Left="1627" 
-                Canvas.Top="728" 
+                Grid.Column="1"
+                Grid.Row="1"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
                 Click="backButton_Click">
 
             <Button.Resources>
@@ -53,10 +82,10 @@
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
                 Click="exitButton_Click" 
-                Canvas.Left="1627" 
-                Canvas.Top="37" 
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center">
+                Grid.Column="9"
+                Grid.Row="1"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top">
 
             <Button.Resources>
                 <Style TargetType="Border">
@@ -73,45 +102,64 @@
         </Button>
 
 
-        <DataGrid x:Name="PlayersDataGrid1" Height="676" Width="650" Canvas.Left="63" Canvas.Top="153" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" >
+        <DataGrid x:Name="PlayersDataGrid1" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False">
 
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#ffcc99"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
                     <Setter Property="FontSize" Value="32"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderThickness" Value="1,1,1,2"/>
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="30 5 30 5"/>
+                    
+
                 </Style>
+
+
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="FontSize" Value="32"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="5"/>
+                    <Setter Property="Margin" Value="10 0"/>
+                    
+                    
+                </Style>
+
+                
+
 
 
             </DataGrid.Resources>
             <DataGrid.Columns >
+                
 
-                <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Hcp" Binding="{Binding Path=Hcp}" Width="100"/>
-                <DataGridTextColumn Header="Skill" Binding="{Binding Path=Skill }" Width="100"/>
-                <DataGridTemplateColumn Header="Bild"  Width="120">
+                <DataGridTextColumn Header="Namn" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Path=Hcp}" />
+                <DataGridTextColumn Header="Skill" Binding="{Binding Path=Skill }"/>
+                <DataGridTemplateColumn Header="Bild">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding Path=PlayerImage }" Width="auto" MaxHeight="75"/>
+                            <Image Source="{Binding Path=PlayerImage }" MinHeight="75" MaxHeight="95"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Land"  Width="120">
+                <DataGridTemplateColumn Header="Land">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <Image Source="{Binding Path=PlayerFlag }" Width="auto" MaxHeight="75" />
+                            <Image Source="{Binding Path=PlayerFlag }" MinHeight="75" MaxHeight="95"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid x:Name="PlayersDataGrid2" Height="676" Width="650" Canvas.Left="858" Canvas.Top="153" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False" HorizontalAlignment="Left" VerticalAlignment="Top" >
-
+        <DataGrid x:Name="PlayersDataGrid2" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="5" FontSize="25" AlternatingRowBackground="LightGray" AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#ffcc99"/>
@@ -121,26 +169,43 @@
                     <Setter Property="BorderBrush" Value="Black"/>
                     <Setter Property="HorizontalContentAlignment" Value="Center"/>
                     <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="30 5 30 5"/>
+                    <Setter Property="Width" Value="Auto"/>
                 </Style>
 
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="FontSize" Value="32"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="5"/>
+                    
+                    <Setter Property="Width" Value="Auto"/>
+                </Style>
 
             </DataGrid.Resources>
+            
+               
+
+
+            
             <DataGrid.Columns >
 
-                <DataGridTextColumn Header="Namn" Binding="{Binding Name}" Width="*" />
-                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" Width="100"/>
-                <DataGridTextColumn Header="Skill" Binding="{Binding Skill}" Width="100"/>
+                <DataGridTextColumn Header="Namn" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Hcp" Binding="{Binding Hcp}" />
+                <DataGridTextColumn Header="Skill" Binding="{Binding Skill}" />
                 <DataGridTemplateColumn Header="Bild"  Width="120">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding PlayerImage}" Width="auto" MaxHeight="75"/>
+                            <Image Source="{Binding PlayerImage}" MinHeight="75" MaxHeight="95"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Land"  Width="120">
+                <DataGridTemplateColumn Header="Land">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <Image Source="{Binding PlayerFlag}" Width="auto" MaxHeight="75" />
+                            <Image Source="{Binding PlayerFlag}" MinHeight="75" MaxHeight="95"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -156,9 +221,9 @@
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
                 Click="AddButton_Click"
-                Canvas.Left="1627" 
-                Canvas.Top="246" 
-                HorizontalAlignment="Center" 
+                Grid.Column="9"
+                Grid.Row="4"
+                HorizontalAlignment="Right" 
                 VerticalAlignment="Top" >
 
             <Button.Resources>
@@ -174,10 +239,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <RadioButton x:Name="Fri" GroupName="useSkill" Canvas.Left="1804" Canvas.Top="582" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" IsChecked="True" RenderTransformOrigin="4.444,3.476" Width="25" />
-        <RadioButton x:Name="InteFri" GroupName="useSkill" Canvas.Left="1804" Canvas.Top="644" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" Width="25"/>
-        <TextBlock Canvas.Left="1658" TextWrapping="Wrap" Text="Fri lottning" Canvas.Top="574" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Width="108"/>
-        <TextBlock Canvas.Left="1658" TextWrapping="Wrap" Text="Använd hcp" Canvas.Top="636" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Top" Width="127"/>
+        <StackPanel Grid.Column="9" Grid.Row="6" Grid.RowSpan="2" Background="LightGray" Width="250" HorizontalAlignment="Right" MaxHeight="150" Orientation="Horizontal" >
+
+            <Label Content=" Fri lottning   " FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="0 0 0 20"/>
+            <Label Content="Använd hcp" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Bottom" Padding="0 0 0 20"/>
+        </StackPanel>
+        <RadioButton x:Name="Fri" GroupName="useSkill" BorderBrush="Black" BorderThickness="1" IsChecked="True" Width="25" Panel.ZIndex="1" Grid.Column="9" Grid.Row="7" VerticalAlignment="Top" HorizontalAlignment="Left" Margin=" 50 0 0 0"/>
+        <RadioButton x:Name="InteFri" GroupName="useSkill" BorderBrush="Black" BorderThickness="1" Width="25" Panel.ZIndex="1" Grid.Column="9" Grid.Row="7" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 0 50 0"/>
 
         <Button x:Name="LottningsButton" 
                 Height="100" 
@@ -188,10 +256,11 @@
                 Foreground="White" 
                 BorderThickness="0,0,0,0" 
                 Click="LottningsButton_Click"
-                Canvas.Left="1627" 
-                Canvas.Top="440" 
-                HorizontalAlignment="Center" 
-                VerticalAlignment="Top" >
+                Grid.Column="9"
+                Grid.Row="6" 
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top" 
+                Panel.ZIndex="1">
 
             <Button.Resources>
                 <Style TargetType="Border">
@@ -210,5 +279,5 @@
 
 
 
-    </Canvas>
+    </Grid>
 </Window>

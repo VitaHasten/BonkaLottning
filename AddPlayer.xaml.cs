@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,24 +44,41 @@ namespace BonkaLottning
 
         void SubmitPlayerButton_Click(object sender, RoutedEventArgs e)
         {
-            Player selectedPlayer = (Player)OldPlayer.SelectedItem;
-            Players.PlayerList.Remove(selectedPlayer);
+            string InputOk = "";
+            while (InputOk != "OK")
+            {
             
+                
+                if (NameInput.Text != string.Empty && HcpInput != null && SkillInput != null )
+                {
+                    Player selectedPlayer = (Player)OldPlayer.SelectedItem;
+                    Players.PlayerList.Remove(selectedPlayer);
+
+                    
+                    // Players.PlayerList.Add( Name = NameInput.Text, Hcp = double.Parse(HcpInput.Text), Skill = int.Parse(SkillInput.Text), Drives = int.Parse(DriverInput.Value), Wedges = int.Parse(WedgeInput.Value), Chipping = int.Parse(ChippingInput.Value), Putting = int.Parse(PuttingInput.Value), Vinnarskalle = int.Parse(VinnarskalleInput.Value), Alcohol = int.Parse(AlcoholInput.Value), PlayerImage = Convert.ToString(UploadedPreView.Source) PlayerFlag = @"/somalia.png" );
+                    
+
+                    // Nollställer inmatningarna.
+                    NameInput.Text = string.Empty;
+                    HcpInput.Text = string.Empty;
+                    SkillInput.Text = string.Empty;
+                    DriverInput.Value = 3;
+                    WedgeInput.Value = 3;
+                    ChippingInput.Value = 3;
+                    PuttingInput.Value = 3;
+                    VinnarskalleInput.Value = 3;
+                    AlcoholInput.Value = 3;
+                    UploadedPreView.Source = null;
+                    OldPlayer.Text = "    -- Välj spelare --";
+                    InputOk = "OK";
+                }
+
+                else
+                {
+                    MessageBox.Show("Det saknas information. Fyll i alla fält och ladda upp en bild.");
+                }
             
-            // Players.PlayerList.Add( Name = NameInput.Text, Hcp = double.Parse(HcpInput.Text), Skill = int.Parse(SkillInput.Text), Drives = int.Parse(DriverInput.Value), Wedges = int.Parse(WedgeInput.Value), Chipping = int.Parse(ChippingInput.Value), Putting = int.Parse(PuttingInput.Value), Vinnarskalle = int.Parse(VinnarskalleInput.Value), Alcohol = int.Parse(AlcoholInput.Value), PlayerImage = Convert.ToString(UploadedPreView.Source) );
-            
-            // Nollställer inmatningarna.
-            NameInput.Text = string.Empty;
-            HcpInput.Text = string.Empty;
-            SkillInput.Text = string.Empty;
-            DriverInput.Value = 3;
-            WedgeInput.Value = 3;
-            ChippingInput.Value = 3;
-            PuttingInput.Value = 3;
-            VinnarskalleInput.Value = 3;
-            AlcoholInput.Value = 3;
-            UploadedPreView.Source = null;
-            OldPlayer.Text = "    -- Välj spelare --";
+            }
         }
     }
 }
